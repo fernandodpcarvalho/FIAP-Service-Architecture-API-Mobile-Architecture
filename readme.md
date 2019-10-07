@@ -20,3 +20,30 @@ Critérios de Avaliação
   Código limpo;
   Capacidade de abstração do problema dado;
   Corretude da Solução.
+  
+  
+ ##########################
+ microservico produtos
+* Possibilidade de visualizar os detalhes de cada produto;
+* Possibilidade de buscar um produto por palavra-chave;
+Possibilidade de visualizar os produtos de um determinado gênero;
+* Possibilidade de exibir os produtos mais vistos por categorias;(a cada visualização de detalhes, incrementar contador de visualizações)
+
+
+microservico cliente
+* Possibilidade de adicionar itens na sua lista de desejo;
+* Possibilidade de abrir um chamado técnico de algum problema que está acontecendo;
+
+microservico pedido
+* Possibilidade de acompanhar os dados do seu pedido;
+* Possibilidade de calcular o frete de uma compra;
+
+
+################################
+links úteis:
+
+http://zetcode.com/springboot/findbyid/
+https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html (extremamente útil)
+https://www.amitph.com/spring-data-jpa-embeddedid-partially/
+https://www.javaguides.net/2019/01/springboot-postgresql-jpa-hibernate-crud-restful-api-tutorial.html
+https://newfivefour.com/java-jpa-postgresql-jersey.html
