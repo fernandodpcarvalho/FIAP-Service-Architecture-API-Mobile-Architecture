@@ -10,8 +10,13 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Lista_Desejo")
+@Table(name = "lista_desejo")
 public class ListaDesejo implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "listadesejo_id", nullable = false)
