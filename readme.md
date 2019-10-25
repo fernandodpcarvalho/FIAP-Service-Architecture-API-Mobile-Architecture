@@ -1,49 +1,47 @@
-Informações Gerais:
-  Grupos de até no máximo 4 pessoas;
-  Escolher um dos dois cenários (Netlfix ou Amazon) que estão disponíveis no Portal;
-  O valor do trabalho corresponderá a 4,5 pontos em sua média final;
-  Implementação utilizando Spring Boot/Spring Cloud ou outra linguagem de programação que preferir;
-  Na sua implementação deve ser utilizado um banco de dados relacional (mysql ou postgree) e um serviço de mensageria, por exemplo Apache Kafka;
-  Implementação dos conceitos vistos em sala de aula: Gerenciamento de Configuração, Service Discovery, Resiliência e Mensageria.
+FIAP-Service-Architecture-API-Mobile-Architecture
 
-Entregas:
-Back-end:
-  Arquivo zip com todos os fontes ou link do Github ou outro SCM com acesso ao projeto;
-  Documentação do Projeto, explicando suas decisões, principais componentes e arquitetura de uma forma geral.
+Para iniciar a aplicação, siga as instruções abaixo:
 
-Front-end:
-	Opcional. Caso queiram fazer a documentação apenas(sugestão swagger) está Ok.
-   
-Critérios de Avaliação
-  Alta coesão e baixo acoplamento da Solução;
-  Documentação do sistema e de suas classes/métodos;
-  Código limpo;
-  Capacidade de abstração do problema dado;
-  Corretude da Solução.
+Pré-Requisitos
+Instalação do GIT - https://git-scm.com/
+Instalação do docker e docker compose- https://www.docker.com/products/docker-enterprise
+
+# Fazer o download do repositório do projeto:
+git clone https://github.com/fernandodpcarvalho/FIAP-Service-Architecture-API-Mobile-Architecture.git
+
+# Abrir o terminal do linux, entrar no diretório do Projeto e executar os seguintes comandos para criar a infra-estrutura em docker necessária para o projeto:
+docker-compose up -d
+
+# Em seguida, executar o script de criação do topico "pedido"
+./kafka.sh
+
+# Em seguida, executar os seguintes comandos para criar as tabelas no mysql:
+docker exec -ti mysql bash
+mysql -u root -p
+senha = "root"
+use amazon;
+
+# Em seguida, copiar o script sql do arquivo schema-MySql.sql e executar no terminal do docker do Mysql
+
+# Em seguida, copiar o script sql do arquivo data-MySql.sql e executar no terminal do docker do Mysql
+
+# EM seguida, abrir o projeto no Eclipse STS e dar build nos microserviços
+
+# Acessar o endereço http://localhost:8080//swagger-ui.html para visualizar a documentação swagger do microserviço
+
+# Baseado na documentação, realizar chamadas de cara endpoint para efetuar os testes.
   
   
- ##########################
- microservico produtos
+# Microservico produtos
 * Possibilidade de visualizar os detalhes de cada produto;
 * Possibilidade de buscar um produto por palavra-chave;
 Possibilidade de visualizar os produtos de um determinado gênero;
 * Possibilidade de exibir os produtos mais vistos por categorias;(a cada visualização de detalhes, incrementar contador de visualizações)
 
-
-microservico cliente
+# Microservico cliente
 * Possibilidade de adicionar itens na sua lista de desejo;
 * Possibilidade de abrir um chamado técnico de algum problema que está acontecendo;
 
-microservico pedido
+# Microservico pedido
 * Possibilidade de acompanhar os dados do seu pedido;
 * Possibilidade de calcular o frete de uma compra;
-
-
-################################
-links úteis:
-
-http://zetcode.com/springboot/findbyid/
-https://docs.spring.io/spring-data/jpa/docs/1.5.0.RELEASE/reference/html/jpa.repositories.html (extremamente útil)
-https://www.amitph.com/spring-data-jpa-embeddedid-partially/
-https://www.javaguides.net/2019/01/springboot-postgresql-jpa-hibernate-crud-restful-api-tutorial.html
-https://newfivefour.com/java-jpa-postgresql-jersey.html

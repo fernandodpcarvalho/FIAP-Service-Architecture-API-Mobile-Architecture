@@ -1,0 +1,54 @@
+version: '2'
+
+services:
+  zookeeper:
+    image: 'bitnami/zookeeper:3'
+    ports:
+      - '2181:2181'
+    volumes:
+      - 'zookeeper_data:/bitnami'
+    environment:
+      - ALLOW_ANONYMOUS_LOGIN=yes
+    container_name: zookeeper
+  kafka:
+    image: 'bitnami/kafka:2'
+    ports:
+      - '9092:9092'
+    volumes:
+      - 'kafka_data:/bitnami'
+    environment:
+      - KAFKA_CFG_ZOOKEEPER_CONNECT=zookeeper:2181
+      - ALLOW_PLAINTEXT_LISTENER=yes
+    container_name: kafka
+    depends_on:
+      - zookeeper
+  db:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'amazon'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'amazon'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'amazon'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3306:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    container_name: mysql
+      # Where our data will be persisted
+    volumes:
+        - my-db:/var/lib/mysql
+# Names our volume
+volumes:
+  my-db:
+  zookeeper_data:
+    driver: local
+  kafka_data:
+    driver: local
+
+
