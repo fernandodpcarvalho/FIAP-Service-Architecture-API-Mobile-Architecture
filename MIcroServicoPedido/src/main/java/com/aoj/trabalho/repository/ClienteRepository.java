@@ -3,13 +3,10 @@ package com.aoj.trabalho.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.aoj.trabalho.model.Pedido;
+import com.aoj.trabalho.model.Cliente;
 
 @Repository
-public interface PedidoRepository extends CrudRepository<Pedido, Integer> {
+public interface ClienteRepository  extends CrudRepository<Cliente, Integer> {
 	
-	Pedido findById(int pedidoId);
+	Cliente findById(int clienteId);
 }
-
-
-
