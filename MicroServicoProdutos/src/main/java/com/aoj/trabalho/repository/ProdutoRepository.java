@@ -6,7 +6,7 @@ import org.springframework.stereotype.Repository;
 import com.aoj.trabalho.model.Produto;
 
 @Repository
-public interface ProdutoRepository extends CrudRepository<Produto, String> {
+public interface ProdutoRepository extends CrudRepository<Produto, Integer> {
 
 	Produto findById(int parseInt);
 	
@@ -17,5 +17,7 @@ public interface ProdutoRepository extends CrudRepository<Produto, String> {
 	List<Produto> findByDescricaoContaining(String palavra);
 	
 	List<Produto> findByCategoriaOrderByVisualizacaoDesc(String categoria);
+	
+	Boolean deleteById(int produtoId);
 
 }

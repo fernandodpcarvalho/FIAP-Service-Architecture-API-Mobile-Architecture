@@ -10,25 +10,54 @@ Instalação do docker e docker compose- https://www.docker.com/products/docker-
 git clone https://github.com/fernandodpcarvalho/FIAP-Service-Architecture-API-Mobile-Architecture.git
 
 # Abrir o terminal do linux, entrar no diretório do Projeto e executar os seguintes comandos para criar a infra-estrutura em docker necessária para o projeto:
-docker-compose up -d
+docker-compose up -d build
+
+# OBS: Caso haja problema com o kafka em docker, instalar o Confluent Platform que contém o kafka, seguindo os passos abaixo:
+Instalação: https://docs.confluent.io/current/installation/installing_cp/zip-tar.html#prod-kafka-cli-install
+tar xvfz confluent.x.x.x.tar.gz
+sudo mv confluent.x.x.x /opt
+sudo ln -s confluent.x.x.x confluent (((Criar atalho)))
+export PATH=$PATH:/opt/confluent/bin (Incluir no arquivo /etc/profile)
+
+*Instalar Confluent CLI
+https://docs.confluent.io/current/cli/installing.html
+/opt/curl -L https://cnfl.io/cli | sh -s -- -b /opt/confluent/bin
+
+*Executar: 
+confluent local start
 
 # Em seguida, executar o script de criação do topico "pedido"
-./kafka.sh
+1)PAra kafka em docker:
+./kafka-docker.sh
+
+2)Para Kafka local:
+./kafka-local.sh
+
 
 # Em seguida, executar os seguintes comandos para criar as tabelas no mysql:
-docker exec -ti mysql bash
+1)Para o mysql_cliente:
+docker exec -ti mysql-cliente bash
 mysql -u root -p
 senha = "root"
-use amazon;
+use amazon_cliente;
 
-# Em seguida, copiar o script sql do arquivo schema-MySql.sql e executar no terminal do docker do Mysql
+2)Para o mysql_produto
+docker exec -ti mysql-produto bash
+mysql -u root -p
+senha = "root"
+use amazon_produto;
 
-# Em seguida, copiar o script sql do arquivo data-MySql.sql e executar no terminal do docker do Mysql
+# Em seguida, copiar os scripts SQL respecitivo em cada docker do mysql: 
+amazon_database_cliente
+amazon_database_produto
 
 # EM seguida, abrir o projeto no Eclipse STS e dar build nos microserviços
 
-# Acessar o endereço http://localhost:8080//swagger-ui.html para visualizar a documentação swagger do microserviço
-
+# Acessar os seguintes endereços para acessar a documentação em Swager de cada microserviço:
+1) Microserviço Cliente: http://localhost:8070//swagger-ui.html
+2) Microserviço Pedido: http://localhost:8080//swagger-ui.html
+3) Microserviço Produto: http://localhost:8090//swagger-ui.html
+ 
 # Baseado na documentação, realizar chamadas de cara endpoint para efetuar os testes.
   
   

@@ -31,4 +31,11 @@ public class PedidoService {
 		return pedidoRepository.save(pedido);
 	}
 
+	public Boolean removePedido(int pedidoId) {
+		return pedidoRepository.deleteById(pedidoId);
+	}
+
+	public Iterable<Pedido> findAll() {
+		return pedidoRepository.findAll();
+	}
 }

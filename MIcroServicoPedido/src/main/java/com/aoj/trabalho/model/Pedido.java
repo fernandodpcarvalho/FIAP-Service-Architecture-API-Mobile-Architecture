@@ -9,9 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,10 +20,6 @@ public class Pedido {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "pedido_id", nullable = false)
 	private int id;
-	
-	@OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente")
-	private Cliente cliente;
 	
 	@OneToMany(mappedBy = "pedido", targetEntity = Produto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Column(name = "produtos")
@@ -42,21 +36,16 @@ public class Pedido {
 	
 	@Column(name = "enderecoEntrega", nullable = false)
 	private String enderecoEntrega;
-
+	
+	@Column(name = "clienteId", nullable = false)
+	private int clienteId;
+	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
 	}
 
 	public List<Produto> getProdutos() {
@@ -97,5 +86,13 @@ public class Pedido {
 
 	public void setEnderecoEntrega(String enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
+	}
+
+	public int getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
 	}
 }

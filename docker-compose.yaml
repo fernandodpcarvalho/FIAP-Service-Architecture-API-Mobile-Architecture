@@ -22,11 +22,32 @@ services:
     container_name: kafka
     depends_on:
       - zookeeper
-  db:
+  db-cliente:
     image: mysql
     restart: always
     environment:
-      MYSQL_DATABASE: 'amazon'
+      MYSQL_DATABASE: 'amazon_cliente'
+      # So you don't have to use root, but you can if you like
+      MYSQL_USER: 'amazon'
+      # You can use whatever password you like
+      MYSQL_PASSWORD: 'amazon'
+      # Password for root access
+      MYSQL_ROOT_PASSWORD: 'root'
+    ports:
+      # <Port exposed> : < MySQL Port running inside container>
+      - '3307:3306'
+    expose:
+      # Opens port 3306 on the container
+      - '3306'
+    container_name: mysql-cliente
+      # Where our data will be persisted
+    volumes:
+        - my-db:/var/lib/mysql
+  db-produto:
+    image: mysql
+    restart: always
+    environment:
+      MYSQL_DATABASE: 'amazon_produto'
       # So you don't have to use root, but you can if you like
       MYSQL_USER: 'amazon'
       # You can use whatever password you like
@@ -39,7 +60,7 @@ services:
     expose:
       # Opens port 3306 on the container
       - '3306'
-    container_name: mysql
+    container_name: mysql-produto
       # Where our data will be persisted
     volumes:
         - my-db:/var/lib/mysql

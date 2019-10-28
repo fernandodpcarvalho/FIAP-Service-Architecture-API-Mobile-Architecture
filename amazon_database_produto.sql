@@ -1,6 +1,32 @@
-INSERT INTO cliente (`nome`,`email`,`endereco`,`telefone`) VALUES ('Alexandre','alexandre.tadeu@gmail.com','Rua teste 101','11 25067388');
-INSERT INTO cliente (`nome`,`email`,`endereco`,`telefone`) VALUES ('Fernando','fernando@gmail.com','Rua opa 101','11 25067388');
-INSERT INTO cliente (`nome`,`email`,`endereco`,`telefone`) VALUES ('Guilherme','guilherme@gmail.com','Rua blabla 101','11 25067388');
+-------------------
+-- Mysql Produto --
+-------------------
+CREATE TABLE `produto` (
+  `produto_id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(255) NOT NULL,
+  `descricao` varchar(1000) NOT NULL,
+  `genero` varchar(255) NOT NULL,
+  `fornecedor` varchar(255) NOT NULL,
+  `preco` float NOT NULL,
+  `categoria` varchar(255) NOT NULL,
+  `visualizacao` int(20) NOT NULL,
+  `pedido` int(11),
+  PRIMARY KEY (`produto_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+-------------------
+-- Mysql Pedido --
+-------------------
+CREATE TABLE `pedido` (
+  `pedido_id` int(11) NOT NULL AUTO_INCREMENT,
+  `endereco_entrega` varchar(255) NOT NULL,
+  `quantidade` int(11) NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `valor` float NOT NULL,
+  `clienteId` int(11) NOT NULL,
+  PRIMARY KEY (`pedido_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente`) VALUES ('Endereço 1',1,'status 1',111.11,1);
 INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente`) VALUES ('Endereço 2',2,'status 2',222.22,2);
@@ -17,11 +43,6 @@ INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visua
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 9', 'Descricao 9', 'Fornecedor 9', 'Genero 9', 'Produto 9', 250.00, 25, null);
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 10', 'Descricao 10', 'Fornecedor 10', 'Genero 10', 'Produto 10', 3000.00, 25, null);
 
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (1,1);
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (2,2);
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (3,3);
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (1,4);
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (2,5);
-INSERT INTO `lista_desejo` (`cliente`,`produto`) VALUES (3,6);
+
 
 

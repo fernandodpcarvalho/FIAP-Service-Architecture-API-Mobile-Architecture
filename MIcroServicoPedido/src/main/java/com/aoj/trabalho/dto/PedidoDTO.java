@@ -2,24 +2,17 @@ package com.aoj.trabalho.dto;
 
 import java.util.List;
 
-import com.aoj.trabalho.model.Cliente;
 import com.aoj.trabalho.model.Produto;
 
 public class PedidoDTO {
 	
-	private Cliente cliente;	
 	private List<Produto> produtos;
 	private int quantidade;
 	private Double valor;
 	private String status;
 	private String enderecoEntrega;
+	private int clienteId;
 	
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
 	public List<Produto> getProdutos() {
 		return produtos;
 	}
@@ -49,5 +42,11 @@ public class PedidoDTO {
 	}
 	public void setEnderecoEntrega(String enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
+	}
+	public int getClienteId() {
+		return clienteId;
+	}
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
 	}
 }

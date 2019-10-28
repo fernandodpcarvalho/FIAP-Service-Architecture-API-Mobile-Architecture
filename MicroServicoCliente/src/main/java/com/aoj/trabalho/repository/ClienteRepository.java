@@ -8,12 +8,14 @@ import org.springframework.stereotype.Repository;
 import com.aoj.trabalho.model.Cliente;
 
 @Repository
-public interface ClienteRepository extends CrudRepository<Cliente, String> {
+public interface ClienteRepository extends CrudRepository<Cliente, Integer> {
 	
 	Cliente findById(int parseInt);
 
 	List<Cliente> findAll();
 	
 	Cliente findByEmail(String email);
+
+	Boolean deleteById(int clienteId);
 
 }

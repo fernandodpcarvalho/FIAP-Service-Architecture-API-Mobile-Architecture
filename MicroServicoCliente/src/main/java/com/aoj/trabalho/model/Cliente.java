@@ -16,7 +16,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
@@ -60,9 +59,6 @@ public class Cliente implements Serializable {
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Chamado> listaChamados;
 	
-	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	Pedido pedido;	
-
 	public Cliente() {
 		listaDesejos = new ArrayList<Integer>();
 		listaChamados = new ArrayList<Chamado>();

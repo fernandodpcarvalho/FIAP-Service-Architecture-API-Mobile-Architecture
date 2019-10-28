@@ -10,12 +10,12 @@ public class PedidoBuilder {
 
 	public Pedido build(PedidoDTO pedidoDTO) {
 		Pedido pedido = new Pedido();
-		pedido.setCliente(pedidoDTO.getCliente());
 		pedido.setEnderecoEntrega(pedidoDTO.getEnderecoEntrega());
-//		pedido.setProdutos(pedidoDTO.getProdutos());
+		pedido.setProdutos(pedidoDTO.getProdutos());
 		pedido.setQuantidade(pedidoDTO.getQuantidade());
 		pedido.setStatus(pedidoDTO.getStatus());
 		pedido.setValor(pedidoDTO.getValor());
+		pedido.setClienteId(pedidoDTO.getClienteId());
 		return pedido;
 	}
 

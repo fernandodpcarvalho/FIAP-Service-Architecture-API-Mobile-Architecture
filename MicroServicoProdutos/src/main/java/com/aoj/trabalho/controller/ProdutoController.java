@@ -11,7 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.aoj.trabalho.model.Produto;
 import com.aoj.trabalho.repository.ProdutoRepository;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping(value="produtos")
@@ -19,6 +23,21 @@ public class ProdutoController {
 	
 	@Autowired
     private ProdutoRepository produtoRepository;
+	
+	@PostMapping(value="cadastrarProduto/{Produto}")
+	public Produto CadastrarProduto(@RequestBody Produto produto) {
+		return produtoRepository.save(produto);
+	}
+	
+	@PutMapping(value="atualizarProduto/{Produto}")
+	public Produto AtualizarProduto(@RequestBody Produto produto) {
+		return produtoRepository.save(produto);
+	}
+	
+	@DeleteMapping(value="RemoverProduto/{produtoId}")
+	public Boolean RemoverProduto( @PathVariable("produtoId") int produtoId) {
+		return produtoRepository.deleteById(produtoId);
+	}
 
 	@RequestMapping(value="listarProdutos", method = RequestMethod.GET)
 	public List<Produto> ListarProdutos() {

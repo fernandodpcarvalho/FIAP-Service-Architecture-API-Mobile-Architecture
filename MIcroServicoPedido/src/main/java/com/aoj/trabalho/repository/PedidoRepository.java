@@ -9,6 +9,8 @@ import com.aoj.trabalho.model.Pedido;
 public interface PedidoRepository extends CrudRepository<Pedido, Integer> {
 	
 	Pedido findById(int pedidoId);
+	
+	Boolean deleteById(int pedidoId);
 }
 
 
