@@ -1,5 +1,15 @@
 FIAP-Service-Architecture-API-Mobile-Architecture
 
+# Visão geral do projeto
+O projeto consiste na implementaço de 3 microserviços: Pedido, Cliente e Produto.
+A implementaço de banco de dados foi feita usando Mysql
+O microserviço Cliente possui o banco de dados em uma instância separada dos demais.
+Os microserviços de Pedido e Produto acessam o mesmo Banco de dados, por terem domínios semelhantes.
+Foi implementado um tópico "pedido" no Kafka
+O microserviço de Pedido possui uma classe producer que envia os dados de novoPedido para o topico
+A aplicaço PedidoConsumer consome os dados do topico "pedido" e imprime no log. 
+
+
 Para iniciar a aplicação, siga as instruções abaixo:
 
 Pré-Requisitos
@@ -75,6 +85,4 @@ Possibilidade de visualizar os produtos de um determinado gênero;
 
 # Microservico pedido
 * Possibilidade de acompanhar os dados do seu pedido;
-* Possibilidade de calcular o frete de uma compra;
-
-# No microserviço de Pedido, no endpoint de fazerPedido, além de gravar no banco de dados, o producer envia os dados para o topico "pedido" no Kafka. Este topico é consumido pela aplicação "PedidoConsumer", que exibe no log os valores consumidos.
+* Possibilidade de calcular o frete de uma compra
