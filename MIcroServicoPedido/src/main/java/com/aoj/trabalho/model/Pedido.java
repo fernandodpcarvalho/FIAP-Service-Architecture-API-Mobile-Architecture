@@ -34,10 +34,10 @@ public class Pedido {
 	@Column(name = "status", nullable = false)
 	private String status;
 	
-	@Column(name = "enderecoEntrega", nullable = false)
+	@Column(name = "endereco_entrega", nullable = false)
 	private String enderecoEntrega;
 	
-	@Column(name = "clienteId", nullable = false)
+	@Column(name = "cliente_id", nullable = false)
 	private int clienteId;
 	
 	public int getId() {

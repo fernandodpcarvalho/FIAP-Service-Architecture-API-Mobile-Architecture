@@ -22,7 +22,7 @@ services:
     container_name: kafka
     depends_on:
       - zookeeper
-  db-cliente:
+  db:
     image: mysql
     restart: always
     environment:
@@ -43,7 +43,7 @@ services:
       # Where our data will be persisted
     volumes:
         - my-db:/var/lib/mysql
-  db-produto:
+  db:
     image: mysql
     restart: always
     environment:

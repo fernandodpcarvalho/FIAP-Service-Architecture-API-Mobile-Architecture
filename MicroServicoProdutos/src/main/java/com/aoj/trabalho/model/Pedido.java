@@ -21,9 +21,6 @@ public class Pedido {
 	@Column(name = "pedido_id", nullable = false)
 	private int id;
 	
-	@Column(name = "clienteId")
-	private int clienteId;
-	
 	@OneToMany(mappedBy = "pedido", targetEntity = Produto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Column(name = "produtos")
 	private List<Produto> produtos;
@@ -37,23 +34,18 @@ public class Pedido {
 	@Column(name = "status", nullable = false)
 	private String status;
 	
-	@Column(name = "enderecoEntrega", nullable = false)
+	@Column(name = "endereco_entrega", nullable = false)
 	private String enderecoEntrega;
-
+	
+	@Column(name = "cliente_id", nullable = false)
+	private int clienteId;
+	
 	public int getId() {
 		return id;
 	}
 
 	public void setId(int id) {
 		this.id = id;
-	}
-
-	public int getClienteId() {
-		return clienteId;
-	}
-
-	public void setClienteId(int cliente) {
-		this.clienteId = cliente;
 	}
 
 	public List<Produto> getProdutos() {
@@ -94,5 +86,13 @@ public class Pedido {
 
 	public void setEnderecoEntrega(String enderecoEntrega) {
 		this.enderecoEntrega = enderecoEntrega;
+	}
+
+	public int getClienteId() {
+		return clienteId;
+	}
+
+	public void setClienteId(int clienteId) {
+		this.clienteId = clienteId;
 	}
 }

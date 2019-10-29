@@ -18,13 +18,13 @@ CREATE TABLE `pedido` (
   `quantidade` int(11) NOT NULL,
   `status` varchar(255) NOT NULL,
   `valor` float NOT NULL,
-  `clienteId` int(11) NOT NULL,
+  `cliente_id` int(11) NOT NULL,
   PRIMARY KEY (`pedido_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 1',1,'status 1',111.11,1);
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 2',2,'status 2',222.22,2);
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 3',3,'status 3',333.33,3);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente_id`) VALUES ('Endereço 1',1,'status 1',111.11,1);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente_id`) VALUES ('Endereço 2',2,'status 2',222.22,2);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente_id`) VALUES ('Endereço 3',3,'status 3',333.33,3);
 
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 1', 'Descricao 1', 'Fornecedor 1', 'Genero 1', 'Produto 1', 112.30, 5, 1);
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 2', 'Descricao 2', 'Fornecedor 2', 'Genero 2', 'Produto 2', 112.40, 10, 1);
