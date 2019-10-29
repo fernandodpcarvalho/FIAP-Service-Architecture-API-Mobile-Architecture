@@ -86,4 +86,7 @@ Possibilidade de visualizar os produtos de um determinado gênero;
 # Microservico pedido
 * Possibilidade de acompanhar os dados do seu pedido;
 * Possibilidade de calcular o frete de uma compra
+<<<<<<< HEAD
 
+=======
+>>>>>>> d804f975840ed985ac3da7bb513d613cc8f8406c
