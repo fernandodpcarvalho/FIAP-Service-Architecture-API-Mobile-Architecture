@@ -51,6 +51,8 @@ use amazon_produto;
 amazon_database_cliente
 amazon_database_produto
 
+# No configurationserver, verificar no arquivo /resources/config/application.yml se o endereço do parâmetro searchLocations está correto no seu ambiente.
+
 # EM seguida, abrir o projeto no Eclipse STS e dar build nos microserviços
 
 # Acessar os seguintes endereços para acessar a documentação em Swager de cada microserviço:
@@ -74,3 +76,5 @@ Possibilidade de visualizar os produtos de um determinado gênero;
 # Microservico pedido
 * Possibilidade de acompanhar os dados do seu pedido;
 * Possibilidade de calcular o frete de uma compra;
+
+# No microserviço de Pedido, no endpoint de fazerPedido, além de gravar no banco de dados, o producer envia os dados para o topico "pedido" no Kafka. Este topico é consumido pela aplicação "PedidoConsumer", que exibe no log os valores consumidos.

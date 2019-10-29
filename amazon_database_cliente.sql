@@ -1,6 +1,3 @@
--------------------
--- Mysql cliente --
--------------------
 CREATE TABLE `cliente` (
 `cliente_id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,

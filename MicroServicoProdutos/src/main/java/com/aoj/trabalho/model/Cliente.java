@@ -60,8 +60,9 @@ public class Cliente implements Serializable {
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Chamado> listaChamados;
 	
-	@OneToOne(mappedBy = "cliente", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	Pedido pedido;	
+	@Column(name = "pedidoId", nullable = false)
+	private
+	int pedidoId;	
 
 	public Cliente() {
 		listaDesejos = new ArrayList<Integer>();
@@ -131,6 +132,14 @@ public class Cliente implements Serializable {
     )
 	public void setListaChamados(List<Chamado> listaChamados) {
 		this.listaChamados = listaChamados;
+	}
+
+	public int getPedidoId() {
+		return pedidoId;
+	}
+
+	public void setPedidoId(int pedidoId) {
+		this.pedidoId = pedidoId;
 	}
 
 

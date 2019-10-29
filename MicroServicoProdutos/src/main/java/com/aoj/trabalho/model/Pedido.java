@@ -9,9 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -23,9 +21,8 @@ public class Pedido {
 	@Column(name = "pedido_id", nullable = false)
 	private int id;
 	
-	@OneToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "cliente")
-	private Cliente cliente;
+	@Column(name = "clienteId")
+	private int clienteId;
 	
 	@OneToMany(mappedBy = "pedido", targetEntity = Produto.class, fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @Column(name = "produtos")
@@ -51,12 +48,12 @@ public class Pedido {
 		this.id = id;
 	}
 
-	public Cliente getCliente() {
-		return cliente;
+	public int getClienteId() {
+		return clienteId;
 	}
 
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
+	public void setClienteId(int cliente) {
+		this.clienteId = cliente;
 	}
 
 	public List<Produto> getProdutos() {

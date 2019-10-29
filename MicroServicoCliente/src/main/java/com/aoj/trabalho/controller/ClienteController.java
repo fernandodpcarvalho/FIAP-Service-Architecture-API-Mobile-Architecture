@@ -3,6 +3,7 @@ package com.aoj.trabalho.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,14 +18,15 @@ import com.aoj.trabalho.model.Cliente;
 import com.aoj.trabalho.repository.ClienteRepository;
 
 @RestController
+@RefreshScope
 @RequestMapping(value="cliente")
 public class ClienteController {
 
 	@Autowired
     private ClienteRepository clienteRepository;
-
+	
 	@RequestMapping(value="listarClientes", method = RequestMethod.GET)
-	public List<Cliente> ListarProdutos() {		
+	public List<Cliente> ListarClientes() {		
 		return clienteRepository.findAll();
 	}
 	

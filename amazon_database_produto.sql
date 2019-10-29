@@ -1,6 +1,3 @@
--------------------
--- Mysql Produto --
--------------------
 CREATE TABLE `produto` (
   `produto_id` int(11) NOT NULL AUTO_INCREMENT,
   `nome` varchar(255) NOT NULL,
@@ -15,9 +12,6 @@ CREATE TABLE `produto` (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 
--------------------
--- Mysql Pedido --
--------------------
 CREATE TABLE `pedido` (
   `pedido_id` int(11) NOT NULL AUTO_INCREMENT,
   `endereco_entrega` varchar(255) NOT NULL,
@@ -28,9 +22,9 @@ CREATE TABLE `pedido` (
   PRIMARY KEY (`pedido_id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente`) VALUES ('Endereço 1',1,'status 1',111.11,1);
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente`) VALUES ('Endereço 2',2,'status 2',222.22,2);
-INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`cliente`) VALUES ('Endereço 3',3,'status 3',333.33,3);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 1',1,'status 1',111.11,1);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 2',2,'status 2',222.22,2);
+INSERT INTO `pedido` (`endereco_entrega`,`quantidade`,`status`,`valor`,`clienteId`) VALUES ('Endereço 3',3,'status 3',333.33,3);
 
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 1', 'Descricao 1', 'Fornecedor 1', 'Genero 1', 'Produto 1', 112.30, 5, 1);
 INSERT INTO produto(categoria, descricao, fornecedor, Genero, nome, preco, visualizacao, pedido) VALUES('Categoria 2', 'Descricao 2', 'Fornecedor 2', 'Genero 2', 'Produto 2', 112.40, 10, 1);
